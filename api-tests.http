@@ -1,0 +1,59 @@
+### GET /api/health - Controllo di salute di base
+GET http://localhost:3000/api/health
+
+### GET /api/health/detailed - Controllo di salute dettagliato
+GET http://localhost:3000/api/health/detailed
+
+### GET /api/users - Ottieni tutti gli utenti
+GET http://localhost:3000/api/users
+
+### GET /api/users/:id - Ottieni un utente specifico
+GET http://localhost:3000/api/users/ac970896-a075-4220-ab85-de6511550dee
+
+### POST /api/users - Crea un nuovo utente
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+"name": "Marco Polo",
+"email": "marco.polo@example.com",
+"age": 28
+}
+
+### PUT /api/users/:id - Aggiorna un utente esistente
+PUT http://localhost:3000/api/users/ac970896-a075-4220-ab85-de6511550dee
+Content-Type: application/json
+
+{
+"name": "Mario Rossi Aggiornato",
+"age": 31
+}
+
+### DELETE /api/users/:id - Elimina un utente
+DELETE http://localhost:3000/api/users/e69bde9b-2e6b-43b9-b2b4-b0285d743054
+
+### Test validazione - Errore email duplicata
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+"name": "Test Duplicato",
+"email": "mario.rossi@example.com"
+}
+
+### Test validazione - Errore email non valida
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+"name": "Test Email",
+"email": "email-non-valida"
+}
+
+### Test validazione - Errore campi obbligatori mancanti
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+"age": 25
+}
